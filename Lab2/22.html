@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--22. Write a web page which contains a div with a blue background color
+     located on the top left corner of the page. 
+    When the mouse is over it the div should rotate 
+    and move to the right until it reaches the top right corner of the page.
+     The div should not jump directly to the top right corner.-->
+     <html>
+        <head>
+            <style>
+                div {
+                    height: 300px;
+                    width: 20%;
+                    background-color: #1a2c62;
+                    /* transition-property: left, top, rotate;
+                    transition-duration: 4s; */
+
+                    position: relative;
+                    align-items: center;
+                    display: flex;
+                    z-index: 500;		
+                    gap: 20px;
+                    transition: left 2s; /** <- removed position **/
+                    left: 0; /** <- added this line **/
+            }
+            div:hover {
+                top: 8px;
+                    rotate: 180deg;
+                    background-color: #1a2c62;
+                    position: fixed;
+                    left: 80%;
+            }
+            </style>
+        </head>
+        <body>
+            <div>
+    
+            </div>
+        </body>
+    </html>

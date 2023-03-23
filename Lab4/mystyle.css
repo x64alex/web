@@ -126,7 +126,7 @@ border-top-color: #ffd343;
     height: 30px;
 }
 
-.main ul {
+.mainbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -166,6 +166,47 @@ border-top-color: #ffd343;
     height: 280px;
     background: #1c3b56;
 
+}
+
+.maincode p {
+    color: #e6e8ea;
+    width: 410px;
+    height: 104px;
+}
+.maincode a {
+    color: #ffd343;
+}
+.maincode .changes ul {
+    margin-top: 60px;
+    margin-left: 70px;
+    list-style-type: none;
+}
+.maincode .changes li{
+    float: left;
+
+}
+.maincode .changes button {
+    color: #e6e8ea !important;
+    text-shadow: none;
+    background-color: #2b5b84;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin-left: 10px;
+    background-image: linear-gradient(#3776ab 10%, #2b5b84 90%);
+    border-top: 1px solid #3d83be;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(61, 131, 190);
+    border-right: 1px solid #3776ab;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgb(55, 118, 171);
+    border-bottom: 1px solid #3776ab;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(55, 118, 171);
+    border-left: 1px solid #3d83be;
 }
 
 .introduction p {

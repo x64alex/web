@@ -112,8 +112,19 @@ border-top-color: #ffd343;
     position: absolute; right: 0;
     position: absolute; top: 0;
     margin-right: 270px;
+    border-radius: 4px;
 }
 
+.searchicon {
+    position: absolute; right: 0;
+    margin-right: 365px;
+    padding-top: 7px;
+    border-top: 60px;
+    filter: invert(80%) sepia(0%) saturate(13%) hue-rotate(48deg) brightness(92%) contrast(98%);
+
+    width: 30px;
+    height: 30px;
+}
 
 .main ul {
     list-style-type: none;

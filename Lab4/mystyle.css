@@ -159,6 +159,15 @@ border-top-color: #ffd343;
     color: white;
   }
 
+.maincode {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 25px;
+    height: 280px;
+    background: #1c3b56;
+
+}
+
 .introduction p {
     font-size: 22px;
     text-align: center;

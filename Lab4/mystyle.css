@@ -186,7 +186,7 @@ border-top-color: #ffd343;
 
 }
 .maincode .changes button {
-    color: #e6e8ea !important;
+    color: #e6e8ea;
     text-shadow: none;
     background-color: #2b5b84;
     width: 30px;

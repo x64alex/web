@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="1.js"></script><head>
+  <meta charset="UTF-8">
+  <title>Horizontal Desktop Slider</title>
+  <style>
+
+html, body {
+    width: 100%;
+  height: 100%;
+}
+
+    #container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.desktop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+#desktop1 {
+  background: rgba(32, 92, 40, 0.514);
+}
+
+#desktop2 {
+  background: #46205c85;
+}
+
+#desktop3 {
+  background: #f8333385;
+}
+
+#desktop4 {
+  background: #20335c85;
+}
+
+  </style>
+  
+</head>
+<body>
+    <div id="container">
+        <div class="desktop" id="desktop1">
+            <p>Desktop 1</p>
+        </div>
+        <div class="desktop" id="desktop2">
+            <p>Desktop 2</p>
+        </div>
+        <div class="desktop" id="desktop3">
+            <p>Desktop 3</p>
+        </div>
+        <div class="desktop" id="desktop4">
+            <p>Desktop 4</p>
+        </div>
+      </div>
+</body>
+</html>

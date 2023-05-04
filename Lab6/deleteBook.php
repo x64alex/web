@@ -1,48 +1,34 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Book Management DU</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
-
 <body>
     <nav>
         <a href="browseBook.php">Browse Book</a>
-        <a href="addBook.php">Add Book</a>
-        <a href="updateBook.php">Update Book</a>
-        <a href="#">Delete Book</a>
+        <a href="addBook.html">Add Book</a>
+        <a href="updateBook.html">Update Book</a>
+        <a href="deleteBook.html">Delete Book</a>
     </nav>
-
-    <div id="bu">
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <label for="idDel">Book title to delete: </label>
-            <input type="text" name="idDel">
-
-            <input type="button" value="Delete">
-        </form>
-    </div>
 
     <?php
 
-    $con = new mysqli("localhost", "root", "", "Bookmanagement");
+$conn = new mysqli("localhost", "root", "", "example");
 
-    if (!$con) {
-        die('Could not connect: ' . mysqli_error());
-    }
+if (!$conn) {
+  die('Could not connect: ' . mysqli_error());
+}
+$title = $_POST["titleDelete"];
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nameToDelete = mysql_real_escape_string($_POST["idDel"]);
+// sql to delete a record
+$sql = "DELETE FROM Book where title = '$title'";
 
-        if ($nameToDelete) {
-            $sql = "DELETE FROM Book WHERE (Bookname = '$nameToDelete' AND password = '$passToDelete')";
-            $con->query($sql);
-        }
+if (mysqli_query($conn, $sql)) {
+  echo "Record deleted successfully";
+} else {
+  echo "Error deleting record: " . mysqli_error($conn);
+}
+$conn->close();
 
-        mysqli_close($con);
-    }
-    ?>
+?>
 
 </body>
 

@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <title>Book Management AU</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <nav>
+    <a href="browseBook.php">Browse Book</a>
+    <a href="addBook.html">Add Book</a>
+    <a href="updateBook.html">Update Book</a>
+    <a href="deleteBook.html">Delete Book</a>
+  </nav>
+
+  <form method="post" class="form" id="update-Book" action="updateBook.php">
+    <label for="id">Id: </label>
+    <input name="id" type="number">
+
+    <br>
+    <br>
+
+    <label for="title">Title: </label>
+    <input name="title" type="text">
+
+    <br>
+    <br>
+
+    <label for="author">Author: </label>
+    <input name="author" type="text">
+
+    <br>
+    <br>
+
+    <label for="category">Category: </label>
+    <input name="category" type="text">
+
+    <br>
+    <br>
+
+    <label for="pages">Pages: </label>
+    <input name="pages" type="number">
+
+    <br>
+    <br>
+
+    <label for="genre">Genre: </label>
+    <input name="genre" type="text">
+
+    <br>
+    <br>
+
+    <br><br><br><br>
+
+    <input type="submit" value="Update Book" />
+
+  </form>
+
+</body>
+
+</html>

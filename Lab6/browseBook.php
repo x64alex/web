@@ -10,12 +10,12 @@
 
   <nav>
     <a href="#">Browse Book</a>
-    <a href="addBook.php">Add Book</a>
+    <a href="addBook.html">Add Book</a>
     <a href="updateBook.php">Update Book</a>
-    <a href="deleteBook.php">Delete Book</a>
+    <a href="deleteBook.html">Delete Book</a>
   </nav>
 
-  <form method="post" class="form" id="add-Book" action="addBook.php">
+  <form method="post" class="form" id="add-Book">
     <label for="title">Title: </label>
     <input name="title" type="text">
 

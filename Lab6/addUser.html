@@ -1,0 +1,59 @@
+
+<html>
+    <head>
+        <title>User Management AU</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <nav>
+            <a href="browseUser.php">Browse User</a>
+            <a href="#">Add User</a>
+            <a href="updateUser.php">Update User</a>
+            <a href="deleteUser.php">Delete User</a>
+        </nav>
+
+        <form method="post" class="form" id="add-user" action="addUser.php">
+            <label for="username">Username: </label>
+            <input name="username" type="text">
+            
+            <br>
+            <br>
+
+            <label for="password">Password: </label>
+            <input name="password" type="text">
+
+            <br>
+            <br>
+
+            <label for="fullname">Full name: </label>
+            <input name="fullname" type="text">
+
+            <br>
+            <br>
+
+            <label for="age">Age: </label>
+            <input name="age" type="number">
+
+            <br>
+            <br>
+
+            <label for="role">Role: </label>
+            <input name="role" type="text">
+            
+            <br>
+            <br>
+
+            <label for="email">Email: </label>
+            <input name="email" type="text">
+
+            <br><br><br><br>
+
+            <input type="submit" value="Add user"/>
+
+        </form>
+
+      
+    </body>
+</html>

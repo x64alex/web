@@ -1,0 +1,1 @@
+CREATE TABLE Book (id int primary key AUTO_INCREMENT, title varchar(255), author varchar(255), category varchar(255), pages int, genre varchar(255))

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <nav>
+    <a href="browseBook.html">Browse Book</a>
+    <a href="addBook.html">Add Book</a>
+    <a href="updateBook.html">Update Book</a>
+    <a href="deleteBook.html">Delete Book</a>
+  </nav>
+<label for="categoryBrowse">Get element for category: </label>
+<input name="categoryBrowse" type="text" onkeyup=loadDoc(this.value)>
+<div id="categoryItems">
+</div>
+
+
+<script>
+function loadDoc(category) {
+  document.getElementById("categoryItems").innerHTML = "";
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("categoryItems").innerHTML = this.responseText;
+    }
+  };
+   xhttp.open("GET", "browse.php?category:"+category, true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

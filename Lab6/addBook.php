@@ -1,7 +1,7 @@
 <html>
 <body>
 <nav>
-    <a href="browseBook.php">Browse Book</a>
+    <a href="browseBook.html">Browse Book</a>
     <a href="addBook.html">Add Book</a>
     <a href="updateBook.html">Update Book</a>
     <a href="deleteBook.html">Delete Book</a>

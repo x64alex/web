@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from '../Book';
 import { BookService } from '../service/book.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-browse',
@@ -13,26 +14,29 @@ export class BrowseComponent {
   error = '';
   success = '';
         
-  constructor(private bookService: BookService) {
-  }
+  constructor(private http: HttpClient) {}
+  
         
   ngOnInit() {
     this.getBooks();
   }
+
+  
         
   getBooks(): void {
-    this.bookService.getAll(this.category).subscribe(
-      (data: Book[]) => {
-        this.books = data;
-        this.success = 'successful retrieval of the list';
+    this.http.post('http://localhost/web/hw2/browse.php',{
+        "category": this.category 
+    }).subscribe(
+      data => {
+        console.log('Success');
+        this.books = data as Book[];
+        console.log(data);
       },
-      (err) => {
-        console.log(err);
-        this.error = err;
+      error => {
+        console.log('Error');
+        console.log(error);
       }
     );
-
-    
   }
 
   onCategoryInput(category: string) {
@@ -43,7 +47,9 @@ export class BrowseComponent {
   loadItems(event: Event) {
     const target = event.target as HTMLInputElement;
     this.category = target.value;
+    console.log(this.category);
     this.getBooks();
+    console.log(this.books);
   }
 }
 

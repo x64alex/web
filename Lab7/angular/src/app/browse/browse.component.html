@@ -1,0 +1,16 @@
+<nav>
+    <a routerLink="/browse">Browse Book</a>
+    <a routerLink="/add">Add Book</a>
+    <a routerLink="/update">Update Book</a>
+    <a routerLink="/delete">Delete Book</a>
+</nav>
+  <router-outlet></router-outlet>
+  <label for="categoryBrowse">Get element for category: </label>
+  <input name="categoryBrowse" type="text" [(ngModel)]="category" (input)="loadItems($event)">
+        
+    <div id="theList">
+      <h2>The list</h2>
+      <ul>
+        <li *ngFor="let book of books">{{book.author}} | {{book.category}} </li>
+      </ul>
+    </div>

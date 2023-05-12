@@ -1,0 +1,50 @@
+<nav>
+    <a routerLink="/browse">Browse Book</a>
+    <a routerLink="/add">Add Book</a>
+    <a routerLink="/update">Update Book</a>
+    <a routerLink="/delete">Delete Book</a>
+</nav>
+<form method="post" class="form" id="add-Book" (ngSubmit)="onSubmit()" #addBookForm="ngForm">
+
+    <label for="title">Id: </label>
+    <input name="title" type="number" [(ngModel)]="book.id" required>
+  
+    <br>
+    <br>
+  
+
+    <label for="title">Title: </label>
+    <input name="title" type="text" [(ngModel)]="book.title" required>
+  
+    <br>
+    <br>
+  
+    <label for="author">Author: </label>
+    <input name="author" type="text" [(ngModel)]="book.author" required>
+  
+    <br>
+    <br>
+  
+    <label for="category">Category: </label>
+    <input name="category" type="text" [(ngModel)]="book.category" required>
+  
+    <br>
+    <br>
+  
+    <label for="pages">Pages: </label>
+    <input name="pages" type="number" [(ngModel)]="book.pages" required>
+  
+    <br>
+    <br>
+  
+    <label for="genre">Genre: </label>
+    <input name="genre" type="text" [(ngModel)]="book.genre" required>
+  
+    <br>
+    <br>
+  
+    <br><br><br><br>
+  
+    <input type="submit" value="Update Book" [disabled]="!addBookForm.valid" />
+  
+  </form>

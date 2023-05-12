@@ -1,0 +1,12 @@
+<nav>
+    <a routerLink="/browse">Browse Book</a>
+    <a routerLink="/add">Add Book</a>
+    <a routerLink="/update">Update Book</a>
+    <a routerLink="/delete">Delete Book</a>
+</nav>
+<form (ngSubmit)="onDeleteBook()">
+    <label for="titleDelete">Book title to delete:</label>
+    <input name="titleDelete" type="text" [(ngModel)]="titleDelete">
+  
+    <button type="submit">Delete book</button>
+  </form>

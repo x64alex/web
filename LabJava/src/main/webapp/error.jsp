@@ -7,5 +7,6 @@
 </head>
 <body>
 Login failed!
+<a href="index.jsp">Go to home page</a>
 </body>
 </html>

@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<a href="index.jsp">Go to home page</a>
 <%! User user; %>
 <%  user = (User) session.getAttribute("user");
     if (user != null) {
@@ -28,6 +29,7 @@
     }
 %>
 <table>
+    <tr><td>Filter users by fields:<td></tr>
     <tr><td>User name: </td><td><input type="text" id="user-name"></td></tr>
     <tr><td>User Email: </td><td><input type="text" id="user-email"></td></tr>
     <tr><td>User age: </td><td><input type="text" id="user-age"></td></tr>

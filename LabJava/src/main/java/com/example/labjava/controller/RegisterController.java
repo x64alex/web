@@ -22,7 +22,7 @@ public class RegisterController extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>" + "Hello Login!" + "</h1>");
+        out.println("<h1>" + "Need to login first!" + "</h1>");
         out.println("</body></html>");
     }
     protected void doPost(HttpServletRequest request,

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <nav>
+        <a href="browse.html">All websites</a>
+        <a href="browse3matches.html">All websites 3 matches</a>
+        <a href="updateKeywords.html">Update keywords</a>
+      </nav>
+<label>Keywords: </label>
+<input id="keywords" type="text">
+<button onclick="loadDoc()">Get</button>
+<div id="items">
+</div>
+
+
+<script>
+function loadDoc() {
+  document.getElementById("items").innerHTML = "";
+  var keywords = document.getElementById("keywords").value;
+  console.log(keywords);
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("items").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "browse3matches.php?keywords="+keywords, true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+drop table documents;
+drop table websites;
+
+CREATE TABLE websites (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    url VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE documents (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    idwebsites INT,
+	FOREIGN KEY(idwebsites) REFERENCES websites(id),
+    keyword1 VARCHAR(100),
+    keyword2 VARCHAR(100),
+	keyword3 VARCHAR(100),
+    keyword4 VARCHAR(100),
+    keyword5 VARCHAR(100)
+);	
+insert into websites(url) values("url://1");
+insert into documents(name,idwebsites,keyword1,keyword2,keyword3,keyword4,keyword5) values("1",1,"key1","key2","key3","key4", "key5"),("2kuv",1,"key1","key","key3","key4", "key5") ;
+
+
+select * from websites;
+select * from documents;

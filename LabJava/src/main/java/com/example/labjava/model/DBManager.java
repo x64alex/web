@@ -2,12 +2,15 @@ package com.example.labjava.model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-public class Authenticator {
+public class DBManager {
     private Statement stmt;
 
-    public Authenticator() {
+    public DBManager() {
         connect();
     }
 
@@ -63,33 +66,66 @@ public class Authenticator {
         return response;
     }
 
-    public ArrayList<User> getUsers(String name, String email, String picture, String age, String homeTown){
-        ArrayList<User> users = new ArrayList<User>();
+    public ArrayList<Article> getArticles(String name, String journalName){
+        ArrayList<Article> articles = new ArrayList<Article>();
         ResultSet rs;
         try {
 
-            rs = stmt.executeQuery("select * from users where " +
-                    "(SELECT POSITION('"+name+"' IN name) )>0 AND" +
-                    " (SELECT POSITION('"+email+"' IN email) )>0 AND " +
-                    "(SELECT POSITION('"+picture+"' IN picture) )>0 AND " +
-                    "(SELECT POSITION('"+age+"' IN age) )>0 AND "+
-                    "(SELECT POSITION('"+homeTown+"' IN home_town) )>0");
+            rs = stmt.executeQuery("select * from journals j ,articles a where" +
+                    " j.name = '"+journalName+"' AND " +
+                    " a.user = '"+name+"' AND " +
+                    "j.id = a.journalid");
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String nameQuery = rs.getString("name");
-                String emailQuery = rs.getString("email");
-                String pictureQuery = rs.getString("picture");
-                int ageQuery = rs.getInt("age");
-                String homeTownQuery = rs.getString("home_town");
-                String password = rs.getString("password");
+                String user = rs.getString("user");
+                int journalid = rs.getInt("journalid");
+                String summary = rs.getString("summary");
+                java.util.Date date = rs.getDate("date");
 
-                User user = new User(id, nameQuery, emailQuery, pictureQuery, ageQuery, homeTownQuery, password);
-                users.add(user);
+                Article article = new Article(id,user,journalid,summary,date);
+                articles.add(article);
             }
             rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return users;
+        return articles;
+    }
+
+    public String addArticles(String userName, String summary, String journalName){
+        Integer jId = -1;
+        ResultSet rs;
+        try {
+
+            rs = stmt.executeQuery("select * from journals j  where" +
+                    " j.name = '"+journalName+"'");
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                jId = id;
+            }
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd");
+            LocalDateTime now = LocalDateTime.now();
+            System.out.println(dtf.format(now));
+            String date = dtf.format(now);
+            if(jId != -1){
+                stmt.execute("insert into articles(user,journalid,summary,date) values("+userName +","+jId+","+ summary+","+date +")\n");
+            }
+            else{
+                stmt.execute("insert into journals(name) values("+journalName +")\n");
+                rs = stmt.executeQuery("select * from journals j  where" +
+                        " j.name = '"+journalName+"'");
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    jId = id;
+                }
+
+                stmt.execute("insert into articles(user,journalid,summary,date) values("+userName +","+jId+","+ summary+","+date +")\n");
+            }
+            rs.close();
+            return "Article: "+userName+" "+summary+" "+date+" added.";
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "false";
+        }
     }
 }

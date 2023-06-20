@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    <a>
+        @Html.ActionLink("Go back to home", "HomeLogin", "Home")
+    </a>
+    <br>
+    <button onclick="loadDoc()">Get siblings</button>
+    <br>
+    <label>Siblings:</label>
+    <div name="items" id="items"></div>
+
+    <br>
+    <button onclick="loadFather()">Get father line</button>
+    <br>
+    <label>Father line:</label>
+    <div name="father" id="father"></div>
+
+    <br>
+    <button onclick="loadMother()">Get mother line</button>
+    <br>
+    <label>Mother line:</label>
+    <div name="mother" id="mother"></div>
+
+
+    <script>
+        function loadDoc() {
+            document.getElementById("items").innerHTML = "";
+            $.get("/Home/GetSiblings", {},
+                function (data, status) {
+                    $("#items").html(data);
+                });
+        }
+
+        function loadFather() {
+            document.getElementById("father").innerHTML = "";
+            $.get("/Home/GetFather", {},
+                function (data, status) {
+                    $("#father").html(data);
+                });
+        }
+
+        function loadMother() {
+            document.getElementById("mother").innerHTML = "";
+            $.get("/Home/GetMother", {},
+                function (data, status) {
+                    $("#mother").html(data);
+                });
+        }
+
+    </script>
+</body>
+
+</html>

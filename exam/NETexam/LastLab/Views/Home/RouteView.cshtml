@@ -11,16 +11,20 @@
     <h4>Select departure city:</h4>
 
     <form action="/Home/AddDeparture" method="Get">
-        Departure city : <input type="text" id="IDTitle" name="departureCity" /> <br />
+        next city : <input type="text" id="IdCity" name="departureCity" /> <br />
         <input type="submit" value="Select departure city" />
     </form>
+
+    <form action="/Home/SetFinalDestination" method="Get">
+        final city : <input type="text" id="IdCity" name="city" /> <br />
+        <input type="submit" value="Select final city" />
+    </form>
+
+    @*<button onclick="setFinalDestination()">Set final destination</button>*@
 
     <form action="/Home/RouteGoBack" method="Get">
         <input type="submit" value="Go back" />
     </form>
-
-
-
 
     <script>function loadDoc() {
             document.getElementById("items").innerHTML = "";
@@ -28,7 +32,14 @@
                 function (data, status) {
                     $("#items").html(data);
                 });
-        }</script>
+        }
+
+            //function setFinalDestination() {
+
+            //    $.get("/Home/SetFinalDestination", { city: document.getElementById("IdCity").value },
+            //        function (data, status) {
+            //        });
+            //}</script>
 
 </body>
 </html>

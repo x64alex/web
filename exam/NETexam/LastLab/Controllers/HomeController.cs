@@ -4,6 +4,7 @@ using LastLab.Models;
 using LastLab.DataAbstractionLayer;
 using MySqlX.XDevAPI;
 using MySqlX.XDevAPI.Common;
+using System.Collections;
 
 
 namespace LastLab.Controllers;
@@ -134,16 +135,18 @@ public class HomeController : Controller
         bool response = false;
 
         DAL dal = new DAL();
-        List<City> cities = dal.getCityLinks();
+        List<DestinationCity> destinationCities = dal.getCityLinks();
         City departureCity = new City();
 
 
-        foreach (City city in cities)
+        foreach (DestinationCity city in destinationCities)
         {
             if (city.name == departureCityName)
             {
                 response = true;
-                departureCity = city;
+                departureCity.id = city.id;
+                departureCity.name = city.name;
+                departureCity.county = city.county;
                 break;
             }
         }
@@ -162,18 +165,40 @@ public class HomeController : Controller
     public string GetCityLinks()
     {
         DAL dal = new DAL();
-        List<City> cities = dal.getCityLinks();
+        List<DestinationCity> destinationCities = dal.getCityLinks();
         string result;
-        if (cities.Count == 0)
+        if (destinationCities.Count == 0)
         {
             result = "<h3>No cities</h3>";
         }
         else
         {
-            result = "<table><thead><th>Name</th><th>County</th></thead>";
-            foreach (City city in cities)
+            //sort city
+            for (int j = 0; j <= destinationCities.Count - 2; j++)
             {
-                result += "<tr><td>" + city.name + "</td><td>" + city.county + "</td><td></tr>";
+                for (int i = 0; i <= destinationCities.Count - 2; i++)
+                {
+                    DestinationCity city1 = destinationCities[i];
+                    DestinationCity city2 = destinationCities[i+1];
+
+                    double cost1 = city1.duration * 0.6 + city1.distance * 0.4;
+                    double cost2 = city2.duration * 0.6 + city2.distance * 0.4;
+
+                    if (cost1 > cost2)
+                    {
+                        DestinationCity temp = destinationCities[i + 1];
+                        destinationCities[i + 1] = destinationCities[i];
+                        destinationCities[i] = temp;
+                    }
+                }
+            }
+
+
+            result = "<table><thead><th>Name</th><th>County</th><th>Distance</th><th>Duration</th><th>Cost</th></thead>";
+            foreach (DestinationCity city in destinationCities)
+            {
+                double cost = city.duration * 0.6 + city.distance * 0.4;
+                result += "<tr><td>" + city.name + "</td><td>" + city.county + "</td><td>"+ city.distance + "</td><td>" + city.duration + "</td><td>" + cost + "</td><td></tr>";
             }
 
             result += "</table>";

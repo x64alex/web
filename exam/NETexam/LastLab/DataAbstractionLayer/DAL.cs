@@ -48,13 +48,14 @@ namespace LastLab.DataAbstractionLayer
 
         }
 
-        public List<City> getCityLinks()
+        public List<DestinationCity> getCityLinks()
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString;
 
             myConnectionString = "server=localhost;uid=root;pwd='12345678';database=web;";
-            List<City> cities = new List<City>();
+            List<DestinationCity> destinationCities = new List<DestinationCity>();
+
 
             try
             {
@@ -71,14 +72,16 @@ namespace LastLab.DataAbstractionLayer
 
                 while (myreader.Read())
                 {
-                    City city = new City();
+                    DestinationCity city = new DestinationCity();
                     city.id = myreader.GetInt32("idcity2");
-                    cities.Add(city);
+                    city.distance = myreader.GetInt32("distance");
+                    city.duration = myreader.GetInt32("duration");
+                    destinationCities.Add(city);
                 }
                 myreader.Close();
 
 
-                foreach(City city in cities)
+                foreach(DestinationCity city in destinationCities)
                 {
                     MySqlCommand cmd1 = new MySqlCommand();
                     cmd1.Connection = conn;
@@ -100,7 +103,7 @@ namespace LastLab.DataAbstractionLayer
             {
                 Console.Write(ex.Message);
             }
-            return cities;
+            return destinationCities;
 
         }
 

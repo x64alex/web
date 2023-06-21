@@ -1,9 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
 <body>
-    <a>
-        @Html.ActionLink("Go back", "Index", "Home")
-    </a>
     <label for="categoryBrowse">Select linked </label>
 
     <br>
@@ -17,6 +14,12 @@
         Departure city : <input type="text" id="IDTitle" name="departureCity" /> <br />
         <input type="submit" value="Select departure city" />
     </form>
+
+    <form action="/Home/RouteGoBack" method="Get">
+        <input type="submit" value="Go back" />
+    </form>
+
+
 
 
     <script>function loadDoc() {

@@ -3,14 +3,14 @@
 *@
 @{
 }
-
 <!DOCTYPE html>
 <html>
 <body>
-    <a>
-        @Html.ActionLink("Go back to select city", "Index", "Home")
-    </a>
+    <form action="/Home/RouteGoBackError" method="Get">
+        <input type="submit" value="Go back" />
+    </form>
     <label for="categoryBrowse">City does not exist!!!! </label>
 
 </body>
 </html>
+

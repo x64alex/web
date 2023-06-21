@@ -68,7 +68,7 @@ public class HomeController : Controller
             MyGlobals.activeRoute.Push(departureCity);
             return RedirectToAction("RouteView");
         }
-        return RedirectToAction("ErrorAddDeparture");
+        return RedirectToAction("ErrorAddRouteCity");
     }
 
     [HttpGet("Home/ErrorAddDeparture")]
@@ -80,6 +80,45 @@ public class HomeController : Controller
     public ActionResult RouteView()
     {
         return View("RouteView");
+    }
+
+    [HttpGet("Home/ErrorAddRouteCity")]
+    public ActionResult ErrorAddRouteCity()
+    {
+        return View("ErrorAddRouteCity");
+    }
+
+
+    
+    [HttpGet("Home/RouteGoBack")]
+    public ActionResult RouteGoBack()
+    {
+        MyGlobals.activeRoute.Pop();
+        if(MyGlobals.activeRoute.Count == 0)
+        {
+            return View("AllCities");
+        }
+        else
+        {
+            ViewData["departureCity"] = MyGlobals.activeRoute.Peek().name;
+            return View("RouteView");
+        }
+
+    }
+
+    [HttpGet("Home/RouteGoBackError")]
+    public ActionResult RouteGoBackError()
+    {
+        if (MyGlobals.activeRoute.Count == 0)
+        {
+            return View("AllCities");
+        }
+        else
+        {
+            ViewData["departureCity"] = MyGlobals.activeRoute.Peek().name;
+            return View("RouteView");
+        }
+
     }
 
 

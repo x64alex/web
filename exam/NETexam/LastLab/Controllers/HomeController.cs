@@ -173,7 +173,7 @@ public class HomeController : Controller
         }
         else
         {
-            //sort city
+            //sort city with bubble sort
             for (int j = 0; j <= destinationCities.Count - 2; j++)
             {
                 for (int i = 0; i <= destinationCities.Count - 2; i++)

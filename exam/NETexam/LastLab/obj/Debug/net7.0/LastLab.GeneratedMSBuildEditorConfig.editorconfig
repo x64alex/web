@@ -16,28 +16,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/AddSection.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BZGRTZWN0aW9uLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/AllCities.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BbGxDaXRpZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/Authentificate.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BdXRoZW50aWZpY2F0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/ErrorAdd.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9FcnJvckFkZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/ErrorLogin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9FcnJvckxvZ2luLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/HomeLogin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Ib21lTG9naW4uY3NodG1s
+[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/ErrorAddDeparture.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9FcnJvckFkZERlcGFydHVyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/old/AddNewBook.cshtml]
@@ -52,12 +36,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9vbGQvRmlsdGVyQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/SuccesAdd.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TdWNjZXNBZGQuY3NodG1s
+[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/old2/AddSection.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9vbGQyL0FkZFNlY3Rpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/ViewSection.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9WaWV3U2VjdGlvbi5jc2h0bWw=
+[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/old2/Authentificate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9vbGQyL0F1dGhlbnRpZmljYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/old2/ErrorAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9vbGQyL0Vycm9yQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/old2/ErrorLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9vbGQyL0Vycm9yTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/old2/HomeLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9vbGQyL0hvbWVMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/old2/SuccesAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9vbGQyL1N1Y2Nlc0FkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/old2/ViewSection.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9vbGQyL1ZpZXdTZWN0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Home/RouteView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Sb3V0ZVZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/acantor/Documents/GitHub/web/exam/NETexam/LastLab/Views/Shared/Error.cshtml]

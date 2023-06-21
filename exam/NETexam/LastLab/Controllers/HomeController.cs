@@ -45,28 +45,87 @@ public class HomeController : Controller
     [HttpGet("Home/AddDeparture")]
     public ActionResult AddDeparture()
     {
-        string departureCity = Request.Query["departureCity"];
+        string departureCityName = Request.Query["departureCity"];
         bool response = false;
 
         DAL dal = new DAL();
         List<City> cities = dal.getCities();
+        City departureCity = new City();
 
 
         foreach (City city in cities)
         {
-            if(city.name == departureCity)
+            if(city.name == departureCityName)
             {
                 response = true;
+                departureCity = city;
                 break;
             }
         }
 
         if (response == true)
         {
-            return RedirectToAction("SuccesAdd");
+            MyGlobals.activeRoute.Push(departureCity);
+            return RedirectToAction("RouteView");
         }
-        return RedirectToAction("ErrorAdd");
+        return RedirectToAction("ErrorAddDeparture");
     }
+
+    [HttpGet("Home/ErrorAddDeparture")]
+    public ActionResult ErrorAddDeparture()
+    {
+        return View("ErrorAddDeparture");
+    }
+    [HttpGet("Home/RouteView")]
+    public ActionResult RouteView()
+    {
+        return View("RouteView");
+    }
+
+
+
+    public string GetCityLinks()
+    {
+        DAL dal = new DAL();
+        List<City> cities = dal.getCityLinks();
+        string result;
+        if (cities.Count == 0)
+        {
+            result = "<h3>No cities</h3>";
+        }
+        else
+        {
+            result = "<table><thead><th>Name</th><th>County</th></thead>";
+            foreach (City city in cities)
+            {
+                result += "<tr><td>" + city.name + "</td><td>" + city.county + "</td><td></tr>";
+            }
+
+            result += "</table>";
+
+        }
+
+
+
+        return result;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

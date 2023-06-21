@@ -48,7 +48,61 @@ namespace LastLab.DataAbstractionLayer
 
         }
 
+        public List<City> getCityLinks()
+        {
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString;
 
+            myConnectionString = "server=localhost;uid=root;pwd='12345678';database=web;";
+            List<City> cities = new List<City>();
+
+            try
+            {
+                conn = new MySql.Data.MySqlClient.MySqlConnection();
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                City lastCity = MyGlobals.activeRoute.Peek();
+
+                cmd.CommandText = "SELECT * FROM Link WHERE idcity1="+lastCity.id;
+                MySqlDataReader myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    City city = new City();
+                    city.id = myreader.GetInt32("idcity2");
+                    cities.Add(city);
+                }
+                myreader.Close();
+
+
+                foreach(City city in cities)
+                {
+                    MySqlCommand cmd1 = new MySqlCommand();
+                    cmd1.Connection = conn;
+
+                    cmd1.CommandText = "SELECT * FROM City WHERE id=" + city.id;
+                    MySqlDataReader myreader1 = cmd1.ExecuteReader();
+                    myreader1.Read();
+                    city.name = myreader1.GetString("name");
+                    city.county = myreader1.GetString("county");
+
+                    myreader1.Close();
+                }
+
+
+
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                Console.Write(ex.Message);
+            }
+            return cities;
+
+        }
 
 
 

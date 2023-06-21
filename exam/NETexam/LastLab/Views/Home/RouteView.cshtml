@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+    <a>
+        @Html.ActionLink("Go back", "Index", "Home")
+    </a>
+    <label for="categoryBrowse">Select linked </label>
+
+    <br>
+    <button onclick="loadDoc()">Get links to city</button>
+    <br>
+    <label>City Links:</label>
+    <div name="items" id="items"></div>
+    <h4>Select departure city:</h4>
+
+    <form action="/Home/AddDeparture" method="Get">
+        Departure city : <input type="text" id="IDTitle" name="departureCity" /> <br />
+        <input type="submit" value="Select departure city" />
+    </form>
+
+
+    <script>function loadDoc() {
+            document.getElementById("items").innerHTML = "";
+            $.get("/Home/GetCityLinks", {},
+                function (data, status) {
+                    $("#items").html(data);
+                });
+        }</script>
+
+</body>
+</html>

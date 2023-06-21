@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddNewStudent</title>
+</head>
+<body>
+    @Html.ActionLink("Go back to home", "HomeLogin", "Home")
+    <div>
+        <form action="/Home/AddParents" method="Get">
+            Username : <input type="text" id="IDTitle" name="username" /> <br />
+            Mother : <input type="text" id="IDTitle" name="mother" /> <br />
+            Father : <input type="text" id="IDTitle" name="father" /> <br />
+            <input type="submit" value="Add user mother and father" />
+        </form>
+    </div>
+</body>
+</html>

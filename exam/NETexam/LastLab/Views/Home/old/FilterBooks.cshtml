@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+    <label for="categoryBrowse">Get element for category: </label>
+    <input name="categoryBrowse" type="text" onkeyup=loadDoc(this.value)>
+    <div id="categoryItems">
+    </div>
+
+
+    <script>function loadDoc(category) {
+            document.getElementById("categoryItems").innerHTML = "";
+            $.get("/Home/GetBooksFromCategory", { category: category },
+                function (data, status) {
+                    $("#categoryItems").html(data);
+                });
+        }</script>
+
+</body>
+</html>

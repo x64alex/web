@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    <br>
+    <button onclick="loadDoc()">Get cities</button>
+    <br>
+    <label>Cities:</label>
+    <div name="items" id="items"></div>
+    <h4>Select departure city:</h4>
+
+    <form action="/Home/AddDeparture" method="Get">
+        Departure city : <input type="text" id="IDTitle" name="departureCity" /> <br />
+        <input type="submit" value="Select departure city" />
+    </form>
+
+
+    <script>function loadDoc() {
+            document.getElementById("items").innerHTML = "";
+            $.get("/Home/GetCities", {},
+                function (data, status) {
+                    $("#items").html(data);
+                });
+        }</script>
+
+</body>
+
+</html >
